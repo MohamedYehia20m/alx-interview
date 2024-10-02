@@ -20,5 +20,5 @@ def pascal_triangle(n):
         for j in range(i - 1):  # for row no.2 we fill one cell with index 0.
             row.append(triangle[i-1][j] + triangle[i-1][j + 1])
         row.append(1)  # end
-    triangle.append(row)
+        triangle.append(row)
     return triangle
