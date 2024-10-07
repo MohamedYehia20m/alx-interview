@@ -12,7 +12,7 @@ def canUnlockAll(boxes):
     keys = list(distinct_keys)
     n = len(boxes)
 
-    for i in range(1,n):
+    for i in range(1, n):
         if len(distinct_keys) == n - 1:
             return True
         if i > len(distinct_keys):
@@ -21,4 +21,3 @@ def canUnlockAll(boxes):
         keys = list(distinct_keys)
 
     return False
-
