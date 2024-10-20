@@ -11,7 +11,8 @@ of 'H' characters specified by the user.
 Functions:
 ----------
 minOperations(n): Calculates the minimum number of operations to obtain n 'H'
-characters. Returns the number of operations or 0 if n is less than or equal to 1.
+characters. Returns the number of operations
+or 0 if n is less than or equal to 1.
 
 Usage:
 ------
