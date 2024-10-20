@@ -1,5 +1,27 @@
 #!/usr/bin/python3
 
+"""
+min_operations.py
+
+This module provides a function to calculate the minimum number of operations
+needed to create a string of 'H' characters using two operations: Copy All
+and Paste. Starting with a single 'H', the goal is to reach a target number
+of 'H' characters specified by the user.
+
+Functions:
+----------
+minOperations(n): Calculates the minimum number of operations to obtain n 'H'
+characters. Returns the number of operations or 0 if n is less than or equal to 1.
+
+Usage:
+------
+To use this module, simply call the minOperations function with an integer
+parameter representing the desired number of 'H' characters:
+
+    result = minOperations(8)
+    print(f"Minimum operations to obtain 8 'H's: {result}")
+"""
+
 
 def minOperations(n):
     """
