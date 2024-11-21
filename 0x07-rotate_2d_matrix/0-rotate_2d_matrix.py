@@ -1,10 +1,10 @@
 #!/usr/bin/python3
+"""
+rotate_2d_matrix module
+Rotates a n x n 2D matrix 90 degrees clockwise.
+"""
 
 
-"""
-    rotate_2d_matrix module
-    rotate n x n 2D matrix 90 degrees clockwise.
-"""
 def rotate_2d_matrix(matrix):
     """
     Rotates a square 2D matrix in place 90 degrees clockwise.
@@ -15,4 +15,4 @@ def rotate_2d_matrix(matrix):
     Returns:
         None: The matrix is modified in place.
     """
-    matrix[:] = zip(*matrix[::-1])
+    matrix[:] = [list(row) for row in zip(*matrix[::-1])]
