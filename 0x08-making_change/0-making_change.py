@@ -5,6 +5,7 @@ This module provides a function to calculate the minimum number of coins
 needed to meet a given total using a set of coin denominations.
 """
 
+
 def makeChange(coins, total):
     """
     Calculate the minimum number of coins required to meet a given total.
