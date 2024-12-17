@@ -1,18 +1,46 @@
 #!/usr/bin/python3
+"""
+Prime Game Module.
+
+This module defines a game played between two players, 'Maria' and 'Ben',
+over multiple rounds. In each round, players consider all prime numbers up to
+a given integer `n`. The player who can pick the last prime wins that round.
+
+The winner of the game is determined by counting the number of rounds each
+player wins. If the number of prime numbers up to `n` is odd, Maria wins
+the round if the count is even, Ben wins.
+
+Functions:
+    - isWinner(x, nums): Determines the overall winner of the game.
+    - count_primes(n): Counts the number of prime numbers up to a given number.
+    - is_prime(num): Checks whether a given number is prime.
+
+Usage:
+    >>> isWinner(3, [4, 5, 6])
+    'Maria'
+"""
+
 
 def isWinner(x, nums):
     """
-    Determines the winner of a prime game between 'Maria' and 'Ben'.
+    Determines the overall winner of the prime number game.
 
-    In each round, the player who can pick the last prime number wins the round.
-    Maria wins if the count of prime numbers up to `num` is odd; otherwise, Ben wins.
+    The game consists of `x` rounds. For each round, players consider all prime
+    numbers up to a given integer `num` (from the `nums` list). The player who
+    wins the majority of the rounds is declared the overall winner.
+
+    Rules:
+    - If the number of prime numbers up to `num` is odd, Maria wins the round.
+    - If the number of prime numbers up to `num` is even, Ben wins the round.
 
     :param x: (int) Number of rounds to be played.
-    :param nums: (list) List of integers, where each element represents the range `n`
-                 for a round. For each round, the prime numbers up to `n` are counted.
-    :return: (str or None) The name of the overall winner ('Ben' or 'Maria') based on
-             who wins more rounds. If there is a tie, it returns `None`.
-    
+    :param nums: (list of int) List of integers, where each integer specifies
+                 the upper limit for prime counting in a given round.
+    :return: (str or None) Returns:
+             - 'Maria' if Maria wins more rounds.
+             - 'Ben' if Ben wins more rounds.
+             - None if there is a tie.
+
     Example:
     >>> isWinner(3, [4, 5, 6])
     'Maria'
@@ -38,18 +66,18 @@ def isWinner(x, nums):
 
 def count_primes(n):
     """
-    Counts the number of prime numbers from 1 to `n` (inclusive).
+    Counts the total number of prime numbers from 1 to `n` (inclusive).
 
-    A prime number is a natural number greater than 1 that has no divisors 
+    A prime number is a positive integer greater than 1 that has no divisors
     other than 1 and itself.
 
     :param n: (int) Upper limit for counting primes.
-    :return: (int) The total number of prime numbers from 1 to `n`.
+    :return: (int) The total number of prime numbers between 1 and `n`.
 
     Example:
     >>> count_primes(10)
     4
-    (Prime numbers: 2, 3, 5, 7)
+    (Prime numbers are: 2, 3, 5, 7)
     """
     count = 0  # Prime counter
     for i in range(2, n + 1):  # Check numbers from 2 to n
@@ -62,8 +90,9 @@ def is_prime(num):
     """
     Determines if a given number is prime.
 
-    A prime number is only divisible by 1 and itself. The function checks divisors 
-    up to the square root of `num` for efficiency.
+    A prime number is a natural number greater than 1 that is only divisible by
+    1 and itself. To optimize, this function checks divisors up to the square
+    root of the number.
 
     :param num: (int) The number to check for primality.
     :return: (bool) True if `num` is prime, False otherwise.
@@ -76,7 +105,7 @@ def is_prime(num):
     """
     if num < 2:  # Numbers less than 2 are not prime
         return False
-    for i in range(2, int(num**0.5) + 1):  # Check for factors up to √num
+    for i in range(2, int(num**0.5) + 1):  # Check divisors up to √num
         if num % i == 0:  # If divisible, not prime
             return False
     return True
